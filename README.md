@@ -1,20 +1,9 @@
 # ScarPhase
 
 
-Utility program for finding and analyzing runtime phases. It uses libscarphase to detect phases, and phase-guided hardware performance counter multiplexing to record an application phase behavior and performance over time.
+Utility program for finding and analyzing runtime phases. It uses [libscarphase][] to detect phases, and phase-guided hardware performance counter multiplexing to record the application's phase behavior and performance over time.
 
 See [uart/online-phase-detection][] for more information.
-
-## Quick Start
-
-    git clone https://github.com/uart/scarphase.git
-    
-    cd scarphase
-    git submodule update --init
-
-    cmake .
-    make
-
 
 ## Prerequisites
 
@@ -25,8 +14,9 @@ See [uart/online-phase-detection][] for more information.
 
 ### C/C++
 
+* [cmake][] — CMake build system
 * [libscarphase][] — ScarPhase library, pulled in with submodule.
-* [protobuf][] — data storage library
+* [protobuf][] — Google data storage library
 * [boost][] — portable C++ libraries
 
 ### Python
@@ -37,6 +27,16 @@ See [uart/online-phase-detection][] for more information.
 * [matplotlib][] — graph plotting library
 * [prettytable][] — print ascii tables
 * [progressbar][] — print progress bar
+
+## Quick Start
+
+    git clone https://github.com/uart/scarphase.git
+    
+    cd scarphase
+    git submodule update --init
+
+    cmake .
+    make
 
 ## Usage
 
@@ -127,7 +127,7 @@ Output data:
 *    **Efficient software-based online phase classification** Andreas Sembrant, David Eklöv, and Erik Hagersten. *In International Symposium on Workload Characterization (IISWC'11)*
 
 
-
+[cmake]: http://www.cmake.org/
 [libscarphase]: https://github.com/uart/libscarphase
 [boost]: http://www.boost.org/
 [protobuf]: https://code.google.com/p/protobuf/
