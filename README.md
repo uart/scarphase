@@ -33,8 +33,10 @@ See [uart/online-phase-detection][] for more information.
 
 * [numpy][] — numeric library
 * [scipy][] — 
+* [scikit-learn][] — machine learning
 * [matplotlib][] — graph plotting library
 * [prettytable][] — print ascii tables
+* [progressbar][] — print progress bar
 
 ## Usage
 
@@ -132,7 +134,11 @@ Output data:
 
 [numpy]: http://www.numpy.org/
 [scipy]: http://www.scipy.org/
-[prettytable]: https://code.google.com/p/prettytable/
+[scikit-learn]: http://scikit-learn.org/stable/
 [matplotlib]: http://matplotlib.org/
+
+[prettytable]: https://code.google.com/p/prettytable/
+[progressbar]: https://code.google.com/p/python-progressbar/
+
 [uart]: http://www.it.uu.se/research/group/uart/
 [uart/online-phase-detection]: http://www.it.uu.se/research/group/uart/measurement#online_phase_detection
