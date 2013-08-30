@@ -7,7 +7,7 @@ See [uart/online-phase-detection][] for more information.
 
 ## Quick Start
 
-    git clone git@github.com:uart/scarphase.git
+    git clone https://github.com/uart/scarphase.git
     
     cd scarphase
     git submodule update --init
