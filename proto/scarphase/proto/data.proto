@@ -1,0 +1,201 @@
+/**
+ * @brief
+ */
+
+
+/**
+ * @brief
+ */
+package scarphase.proto.data;
+
+//----------------------------------------------------------------------------//
+
+/**
+ * @brief
+ */
+message PerformanceCounterSample
+{
+
+    /**
+     * @brief Counter id.
+     */
+    required int32 cid = 1;
+
+    /**
+     * @brief Sample value.
+     */
+    optional uint64 value = 2;
+
+}
+
+/**
+ * @brief
+ */
+message PhaseInfo
+{
+
+    /**
+     * @brief Phase id.
+     */
+    required int32 phase = 1;
+
+    /**
+     * @brief
+     */
+    message Prediction
+    {
+        /**
+         * @brief
+         */
+        required int32 phase = 1;
+
+        /**
+         * @brief
+         */
+        optional int32 confidence = 2 [default = 0];
+    }
+
+    /**
+     * @brief
+     */
+    optional Prediction prediction = 2;
+
+    /**
+     * @brief
+     */
+    message Signature
+    {
+
+        /**
+         * @brief Frequency vector.
+         */
+        repeated double fv_values = 1;
+
+        /**
+         * @brief User vector.
+         */
+        repeated double uv_values = 2;
+
+    }
+
+    /**
+     * @brief
+     */
+    optional Signature signature = 3;
+
+}
+
+/**
+ * @brief
+ */
+message StackTrace
+{
+
+    /**
+     * @brief
+     */
+    message Stack
+    {
+
+        /**
+         * @brief
+         */
+        required uint64 ip = 1;
+
+    }
+
+    /**
+     * @brief
+     */
+    repeated Stack trace = 1;
+
+}
+
+/**
+ * @brief
+ */
+message CodeSample
+{
+
+    /**
+     * @brief
+     */
+    required uint64 ip = 1;
+
+    /**
+     * @brief
+     */
+    optional uint32 count = 2;
+
+}
+
+/**
+ * @brief
+ */
+message WindowData
+{
+
+    /**
+     * @brief
+     */
+    message Time
+    {
+
+        /**
+         * @brief
+         */
+        optional uint64 start = 1;
+
+        /**
+         * @brief
+         */
+        optional uint64 stop  = 2;
+
+    }
+
+    /**
+     * @brief
+     */
+    optional Time time = 1;
+
+    /**
+     * @brief
+     */
+    optional double size = 2;
+
+    /**
+     * @brief
+     */
+    optional PhaseInfo phase_info = 3;
+
+    /**
+     * @brief
+     */
+    repeated CodeSample code_samples = 4;
+
+    /**
+     * @brief
+     */
+    repeated PerformanceCounterSample perf_samples = 5;
+
+    /**
+     * @brief
+     */
+    repeated StackTrace stack_traces = 6;
+
+}
+
+/**
+ * @brief
+ */
+message Header
+{
+
+    /**
+     * @brief
+     */
+    optional bytes uuid = 1;
+
+}
+
+//----------------------------------------------------------------------------//

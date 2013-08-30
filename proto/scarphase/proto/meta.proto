@@ -1,0 +1,185 @@
+/**
+ * @brief
+ */
+
+
+/**
+ * @brief
+ */
+package scarphase.proto.meta;
+
+//----------------------------------------------------------------------------//
+
+/**
+ * @brief
+ */
+message Pair
+{
+
+    /**
+     * @brief
+     */
+    optional string key = 1;
+
+    /**
+     * @brief
+     */
+    optional string value = 2;
+
+}
+
+/**
+ * @brief
+ */
+message PerformanceCounterInfo
+{
+
+    /**
+     * @brief
+     */
+    required int32 id = 1;
+
+    /**
+     * @brief
+     */
+    optional string name = 2;
+
+    /**
+     * @brief
+     */
+    optional string full_name = 3;
+
+    /**
+     * @brief
+     */
+    optional uint64 config = 4;
+
+    /**
+     * @brief
+     */
+    optional uint64 type = 5;
+
+    /**
+     * @brief
+     */
+    optional string func = 6;
+
+    /**
+     * @brief
+     */
+    optional string unit = 7;
+
+}
+
+/**
+ * @brief
+ */
+message ThreadInfo
+{
+
+    /**
+     * @brief Thread id;
+     */
+    optional int32 tid = 1;
+
+    /**
+     * @brief
+     */
+    optional int32 process = 2;
+
+    /**
+     * @brief
+     */
+    repeated Pair settings = 3;
+
+    /**
+     * @brief
+     */
+    message ProfileDataFileInfo
+    {
+
+        /**
+         * @brief
+         */
+        optional string filename = 1;
+
+        /**
+         * @brief
+         */
+        optional bytes uuid = 2;
+
+        /**
+         * @brief
+         */
+        optional uint32 no_windows = 3 [default=0];
+
+    }
+
+    /**
+     * @brief
+     */
+    optional ProfileDataFileInfo profile = 4;
+
+}
+
+/**
+ * @brief
+ */
+message ProcessInfo
+{
+
+    /**
+     * @brief Thread id;
+     */
+    optional int32 pid = 1;
+
+    /**
+     * @brief
+     */
+    optional int32 parent = 2;
+
+    /**
+     * @brief
+     */
+    optional string cmdline = 3;
+
+    /**
+     * @brief
+     */
+    repeated Pair settings = 4;
+
+}
+
+/**
+ * @brief
+ */
+message ProfileInfo
+{
+
+    /**
+     * @brief
+     */
+    repeated Pair settings = 1;
+
+    /**
+     * @brief
+     */
+    repeated Pair system_variables = 2;
+
+    /**
+     * @brief
+     */
+    repeated PerformanceCounterInfo performance_counters = 3;
+
+    /**
+     * @brief
+     */
+    repeated ThreadInfo threads = 4;
+
+    /**
+     * @brief
+     */
+    repeated ProcessInfo processes = 5;
+
+}
+
