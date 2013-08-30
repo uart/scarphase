@@ -1,0 +1,3 @@
+[submodule "libscarphase"]
+	path = libscarphase
+	url = git@github.com:uart/libscarphase.git

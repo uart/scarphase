@@ -1,0 +1,3 @@
+// The configured options and settings for Tutorial
+#define SCARPHASE_VERSION_MAJOR @SCARPHASE_VERSION_MAJOR@
+#define SCARPHASE_VERSION_MINOR @SCARPHASE_VERSION_MINOR@

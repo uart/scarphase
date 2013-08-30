@@ -1,0 +1,96 @@
+/*
+
+	# HARDWARE CTR
+	# PERF_COUNT_HW_CPU_CYCLES		= 0,
+	# PERF_COUNT_HW_INSTRUCTIONS		= 1,
+	# PERF_COUNT_HW_CACHE_REFERENCES	= 2,
+	# PERF_COUNT_HW_CACHE_MISSES		= 3,
+	# PERF_COUNT_HW_BRANCH_INSTRUCTIONS	= 4,
+	# PERF_COUNT_HW_BRANCH_MISSES		= 5,
+	# PERF_COUNT_HW_BUS_CYCLES		= 6,
+
+	# Type
+	# PERF_TYPE_HARDWARE			= 0,
+	# PERF_TYPE_SOFTWARE			= 1,
+	# PERF_TYPE_HW_CACHE			= 3,
+	# PERF_TYPE_RAW				= 4,
+
+*/
+
+/* List of counters to sample */
+{
+
+  /* Example
+    "name": {
+      "full-name": "",
+      "config": 0,
+      "type": 0,
+      "func": "",
+      "unit":
+  */
+
+  "cycles": {
+    "full-name": "PERF_COUNT_HW_CPU_CYCLES",
+    "config" : 0,
+    "type": 0
+  },
+	
+  "instructions": {
+    "full-name": "PERF_COUNT_HW_CPU_INSTRUCTIONS",
+    "config": 1,
+    "type": 0
+  },
+
+  "cpi": {
+    "full-name": "Cycles per Instructions",
+    "func": "cycles/instructions"
+  },
+
+  "cache_references": {
+    "full-name": "PERF_COUNT_HW_CACHE_REFERENCES",
+    "config": 2,
+    "type": 0
+  },
+
+  "cache_misses": {
+    "full-name": "PERF_COUNT_HW_CACHE_MISSES",
+    "config": 3,
+    "type": 0
+  },
+
+  "cache_miss_ratio": {
+    "full-name": "Cache miss ratio",
+    "func": "cache_misses/cache_references",
+    "unit": "%"
+  },
+
+  "cache_miss_rate": {
+    "full-name": "Cache miss rate",
+    "func": "cache_misses/instructions"
+  },
+
+  "branch_instructions": {
+    "full-name": "PERF_COUNT_HW_BRANCH_INSTRUCTIONS",
+    "config": 4,
+    "type": 0
+  },
+
+  "branch_misses": {
+    "full-name": "PERF_COUNT_HW_BRANCH_MISSES",
+    "config": 5,
+    "type": 0
+  },
+
+  "branch_miss_ratio": {
+    "full-name": "Branch miss ratio",
+    "func": "branch_misses/branch_instructions",
+    "unit": "%"
+  },
+
+  "branch_miss_rate": {
+    "full-name": "Branch miss rate",
+    "func": "branch_misses/instructions"
+  }
+
+}
+
