@@ -1,7 +1,7 @@
 # ScarPhase
 
 
-Utility program for finding and analyzing runtime phases.
+Utility program for finding and analyzing runtime phases. It uses libscarphase to detect phases, and phase-guided hardware performance counter multiplexing to record an application phase behavior and performance over time.
 
 ## Quick Start
 
@@ -15,6 +15,11 @@ Utility program for finding and analyzing runtime phases.
 
 
 ## Prerequisites
+
+### General
+
+* Linux with perf event support.
+* Intel PEBS for sampling branches (works without PEBS, but lower accuracy)
 
 ### C/C++
 
@@ -31,9 +36,9 @@ Utility program for finding and analyzing runtime phases.
 
 ## Examples
 
-### 1. Profiling 
+### 1. Profile  
 
-To profile and find phases in gcc from SPEC2006, with input 166.i
+This profiles and finds runtime phases in gcc from SPEC2006, with input 166.i. The profile is saved in *gcc.profile* and is used in the succeeding examples to plot and dump gcc's phases.
 
     ./scarphase profile \
         --scarphase-conf configs/scarphase/example0.conf \
@@ -51,6 +56,8 @@ To profile and find phases in gcc from SPEC2006, with input 166.i
         
 ### 2. Plot results
 
+This plots the performance data and the detected phases from the example above.
+
     ./scarphase plot windows -t 0 -c "2" gcc.profile
     
 * `./scarphase plot` - scarphase command
@@ -58,6 +65,8 @@ To profile and find phases in gcc from SPEC2006, with input 166.i
 * `-t 0` - which thread
 * `-c "2"` - which performance counter to plot
 * `gcc.profile` - profile from example 1
+
+![gcc/166](http://www.it.uu.se/research/group/uart/measurement/online_phase_detection/gcc-screenshot.png "gcc/166 screenshot")
 
 ### 3. Dump data
 
@@ -83,7 +92,16 @@ Output data:
 * `cycles` - executed cycles during the window 
 * the rest of the performance counter data (configured in list0.json)
 
+## Publications
 
+Parts and earlier versions of this software have been used in:
+
+*    **Efficient software-based online phase classification** Andreas Sembrant, David Eklöv, and Erik Hagersten. *In International Symposium on Workload Characterization (IISWC'11)*
+*    **Phase Behavior in Serial and Parallel Applications** Andreas Sembrant, David Black-Schaffer and Erik Hagersten. *In International Symposium on Workload Characterization (IISWC'12)*
+*    **Low Overhead Instruction-Cache Modeling Using Instruction Reuse Profiles** Muneeb Khan, Andreas Sembrant and Erik Hagersten. *In International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD'12)*
+*    **Power-Sleuth: A Tool for Investigating your Program's Power Behavior** Vasileios Spiliopoulos, Andreas Sembrant and Stefanos Kaxiras. *In International Symposium on Modeling, Analysis and Simulation of Computer and Telecommunication Systems (MASCOTS'12)*
+*    **Phase Guided Profiling for Fast Cache Modeling** Andreas Sembrant, David Black-Schaffer and Erik Hagersten. *In International Symposium on Code Generation and Optimization (CGO'12)*
+*    **Modeling Performance Variation Due to Cache Sharing** Andreas Sandberg, Andreas Sembrant, Erik Hagersten and David Black-Schaffer. *In International Symposium on High Performance Computer Architecture (HPCA'13)*
 
 [libscarphase]: https://github.com/uart/libscarphase
 [boost]: http://www.boost.org/
