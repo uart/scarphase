@@ -3,6 +3,8 @@
 
 Utility program for finding and analyzing runtime phases. It uses libscarphase to detect phases, and phase-guided hardware performance counter multiplexing to record an application phase behavior and performance over time.
 
+See [uart/online-phase-detection][] for more information.
+
 ## Quick Start
 
     git clone git@github.com:uart/scarphase.git
@@ -34,7 +36,22 @@ Utility program for finding and analyzing runtime phases. It uses libscarphase t
 * [matplotlib][] — graph plotting library
 * [prettytable][] — print ascii tables
 
-## Examples
+## Usage
+
+### Help.
+
+    ./scarphase -h
+    usage: ./scarphase <command> [<args>]
+
+    Commands:
+       profile      Profile stuff
+       plot         Plot stuff
+       dump         Dump stuff
+       show         Show stuff
+       simpoint     Find simpoints
+       refine       Refine data
+
+    See './scarphase help <command>' for more information.
 
 ### 1. Profile  
 
@@ -92,16 +109,22 @@ Output data:
 * `cycles` - executed cycles during the window 
 * the rest of the performance counter data (configured in list0.json)
 
-## Publications
 
-Parts and earlier versions of this software have been used in:
+## Publications using ScarPhase 
 
-*    **Efficient software-based online phase classification** Andreas Sembrant, David Eklöv, and Erik Hagersten. *In International Symposium on Workload Characterization (IISWC'11)*
+#### 2013
+*    **Modeling Performance Variation Due to Cache Sharing** Andreas Sandberg, Andreas Sembrant, Erik Hagersten and David Black-Schaffer. *In International Symposium on High Performance Computer Architecture (HPCA'13)*
+
+#### 2012
 *    **Phase Behavior in Serial and Parallel Applications** Andreas Sembrant, David Black-Schaffer and Erik Hagersten. *In International Symposium on Workload Characterization (IISWC'12)*
+*    **Phase Guided Profiling for Fast Cache Modeling** Andreas Sembrant, David Black-Schaffer and Erik Hagersten. *In International Symposium on Code Generation and Optimization (CGO'12)*
 *    **Low Overhead Instruction-Cache Modeling Using Instruction Reuse Profiles** Muneeb Khan, Andreas Sembrant and Erik Hagersten. *In International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD'12)*
 *    **Power-Sleuth: A Tool for Investigating your Program's Power Behavior** Vasileios Spiliopoulos, Andreas Sembrant and Stefanos Kaxiras. *In International Symposium on Modeling, Analysis and Simulation of Computer and Telecommunication Systems (MASCOTS'12)*
-*    **Phase Guided Profiling for Fast Cache Modeling** Andreas Sembrant, David Black-Schaffer and Erik Hagersten. *In International Symposium on Code Generation and Optimization (CGO'12)*
-*    **Modeling Performance Variation Due to Cache Sharing** Andreas Sandberg, Andreas Sembrant, Erik Hagersten and David Black-Schaffer. *In International Symposium on High Performance Computer Architecture (HPCA'13)*
+
+#### 2011
+*    **Efficient software-based online phase classification** Andreas Sembrant, David Eklöv, and Erik Hagersten. *In International Symposium on Workload Characterization (IISWC'11)*
+
+
 
 [libscarphase]: https://github.com/uart/libscarphase
 [boost]: http://www.boost.org/
@@ -111,3 +134,5 @@ Parts and earlier versions of this software have been used in:
 [scipy]: http://www.scipy.org/
 [prettytable]: https://code.google.com/p/prettytable/
 [matplotlib]: http://matplotlib.org/
+[uart]: http://www.it.uu.se/research/group/uart/
+[uart/online-phase-detection]: http://www.it.uu.se/research/group/uart/measurement#online_phase_detection
