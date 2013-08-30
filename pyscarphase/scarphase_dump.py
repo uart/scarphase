@@ -51,6 +51,7 @@ class PrettyTableWrapper:
 
     def __del__(self):
         self.output_file.write(self.table.get_string())
+        self.output_file.write('\n')
 
     def write_row(self, row):
         self.table.add_row(row)
