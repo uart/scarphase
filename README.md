@@ -40,7 +40,7 @@ See [uart/online-phase-detection][] for more information.
 
 ## Usage
 
-### Help.
+### Help
 
     ./scarphase -h
     usage: ./scarphase <command> [<args>]
