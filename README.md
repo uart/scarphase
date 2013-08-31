@@ -64,14 +64,14 @@ This profiles and finds runtime phases in gcc from SPEC2006, with input 166.i. T
         --counter-conf configs/counters/list0.json \
         --counter-limit=3 \
         gcc.profile \
-        -- gcc 166.i -o 166.s
+        -- /path/to/gcc 166.i -o 166.s
      
 * `./scarphase profile` - scarphase command
 * `--scarphase-conf configs/scarphase/example0.conf` - contains the configuration settings for the ScarPhase library.
 * `--counter-conf configs/counters/list0.json` - a list of performance counter to sample
 * `--counter-limit` - number of available hardware performance counters
 * `gcc.profile` - output file
-* `-- gcc 166.i -o 166.s` - command to run
+* `-- gcc 166.i -o 166.s` - command to run (use absolute paths)
         
 ### 2. Plot results
 
