@@ -1,20 +1,9 @@
 # ScarPhase
 
 
-Utility program for finding and analyzing runtime phases. It uses libscarphase to detect phases, and phase-guided hardware performance counter multiplexing to record an application phase behavior and performance over time.
+Utility program for finding and analyzing runtime phases. It uses [libscarphase][] to detect phases, and phase-guided hardware performance counter multiplexing to record the application's phase behavior and performance over time.
 
 See [uart/online-phase-detection][] for more information.
-
-## Quick Start
-
-    git clone https://github.com/uart/scarphase.git
-    
-    cd scarphase
-    git submodule update --init
-
-    cmake .
-    make
-
 
 ## Prerequisites
 
@@ -25,8 +14,9 @@ See [uart/online-phase-detection][] for more information.
 
 ### C/C++
 
+* [cmake][] — CMake build system
 * [libscarphase][] — ScarPhase library, pulled in with submodule.
-* [protobuf][] — data storage library
+* [protobuf][] — Google data storage library
 * [boost][] — portable C++ libraries
 
 ### Python
@@ -37,6 +27,16 @@ See [uart/online-phase-detection][] for more information.
 * [matplotlib][] — graph plotting library
 * [prettytable][] — print ascii tables
 * [progressbar][] — print progress bar
+
+## Quick Start
+
+    git clone https://github.com/uart/scarphase.git
+    
+    cd scarphase
+    git submodule update --init
+
+    cmake .
+    make
 
 ## Usage
 
@@ -64,14 +64,14 @@ This profiles and finds runtime phases in gcc from SPEC2006, with input 166.i. T
         --counter-conf configs/counters/list0.json \
         --counter-limit=3 \
         gcc.profile \
-        -- gcc 166.i -o 166.s
+        -- /path/to/gcc 166.i -o 166.s
      
 * `./scarphase profile` - scarphase command
 * `--scarphase-conf configs/scarphase/example0.conf` - contains the configuration settings for the ScarPhase library.
 * `--counter-conf configs/counters/list0.json` - a list of performance counter to sample
 * `--counter-limit` - number of available hardware performance counters
 * `gcc.profile` - output file
-* `-- gcc 166.i -o 166.s` - command to run
+* `-- gcc 166.i -o 166.s` - command to run (use absolute paths)
         
 ### 2. Plot results
 
@@ -127,7 +127,7 @@ Output data:
 *    **Efficient software-based online phase classification** Andreas Sembrant, David Eklöv, and Erik Hagersten. *In International Symposium on Workload Characterization (IISWC'11)*
 
 
-
+[cmake]: http://www.cmake.org/
 [libscarphase]: https://github.com/uart/libscarphase
 [boost]: http://www.boost.org/
 [protobuf]: https://code.google.com/p/protobuf/
