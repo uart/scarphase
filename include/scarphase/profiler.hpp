@@ -56,6 +56,7 @@
 #include <libunwind-ptrace.h>
 
 #include <google/protobuf/io/zero_copy_stream_impl.h>
+#include <google/protobuf/io/coded_stream.h>
 
 #include "scarphase/proto/data.pb.h"
 #include "scarphase/proto/meta.pb.h"
