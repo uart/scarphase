@@ -1,3 +1,4 @@
 [submodule "libscarphase"]
 	path = libscarphase
 	url = https://github.com/uart/libscarphase.git
+    ignore = dirty
