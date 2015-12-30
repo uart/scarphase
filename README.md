@@ -6,6 +6,7 @@ Utility program for finding and analyzing runtime phases. It uses [libscarphase]
 See [uart/online-phase-detection][] for more information.
 
 ## Prerequisites
+* Please make sure you have set up the [backend](http://matplotlib.org/users/customizing.html#customizing-matplotlib) of matplotlib.
 
 ### General
 
@@ -65,20 +66,22 @@ This profiles and finds runtime phases in gcc from SPEC2006, with input 166.i. T
         --counter-limit=3 \
         gcc.profile \
         -- /path/to/gcc 166.i -o 166.s
-     
+
 * `./scarphase profile` - scarphase command
 * `--scarphase-conf configs/scarphase/example0.conf` - contains the configuration settings for the ScarPhase library.
 * `--counter-conf configs/counters/list0.json` - a list of performance counter to sample
 * `--counter-limit` - number of available hardware performance counters
 * `gcc.profile` - output file
 * `-- gcc 166.i -o 166.s` - command to run (use absolute paths)
-        
+
+If you see no\_phases=0, ex: `0s: no_windows=1 no_phases=0`, the results would not be plotable.
+
 ### 2. Plot results
 
 This plots the performance data and the detected phases from the example above.
 
     ./scarphase plot windows -t 0 -c "2" gcc.profile
-    
+
 * `./scarphase plot` - scarphase command
 * `windows` - subcommand: plots windows over time
 * `-t 0` - which thread
@@ -99,7 +102,7 @@ This plots the performance data and the detected phases from the example above.
     |   3 |   1 |  82651513 |    100003538 | 0.826485888929 |           573485 |        41360 |  0.0721204565071 |  0.00041358536735 |            20520996 |        341234 |   0.0166285301162 |  0.00341221927568 |
     |   4 |   2 | 104761301 |    100001455 |  1.04759776745 |           610295 |       525822 |   0.861586609754 |  0.00525814349401 |            20594340 |        217958 |   0.0105833933013 |  0.00217954828757 |
     ...
-    
+ 
 * `./scarphase dump` - scarphase command
 * `windows` - subcommand: dump windows data over time
 * `-t 0` - which thread

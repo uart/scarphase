@@ -1,4 +1,37 @@
+/*
+    This is a format sample file.
+    JSON does not support comments
+    Please remove all the comments when use it!!
+	# HARDWARE CTR
+	# PERF_COUNT_HW_CPU_CYCLES		= 0,
+	# PERF_COUNT_HW_INSTRUCTIONS		= 1,
+	# PERF_COUNT_HW_CACHE_REFERENCES	= 2,
+	# PERF_COUNT_HW_CACHE_MISSES		= 3,
+	# PERF_COUNT_HW_BRANCH_INSTRUCTIONS	= 4,
+	# PERF_COUNT_HW_BRANCH_MISSES		= 5,
+	# PERF_COUNT_HW_BUS_CYCLES		= 6,
+
+	# Type
+	# PERF_TYPE_HARDWARE			= 0,
+	# PERF_TYPE_SOFTWARE			= 1,
+	# PERF_TYPE_HW_CACHE			= 3,
+	# PERF_TYPE_RAW				= 4,
+
+*/
+
+/* List of counters to sample */
 {
+
+  /* Example
+    "name": {
+      "full-name": "",
+      "config": 0,
+      "type": 0,
+      "func": "",
+      "unit":
+    }
+  */
+
   "cycles": {
     "full-name": "PERF_COUNT_HW_CPU_CYCLES",
     "config" : 0,
